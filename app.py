@@ -18,8 +18,12 @@ CORS(app)
 # app.register_blueprint(pictureController, url_prefix='/api/pictures/')
 
 @app.route("/")
-def index():
+def testApi():
   return "Hello from server"
+
+@app.route("/testdb")
+def testdb():
+  return "0.o"
 
 if __name__ == "__main__":
   app.run(port=5000, debug=True)
