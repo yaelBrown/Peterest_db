@@ -1,11 +1,12 @@
 from flask import Flask
 from flask_cors import CORS
 
-from controllers.userController import userController
-from controllers.petsController import petsController
-from controllers.dashboardController import dashboardController
-from controllers.guestController import guestController
-from controllers.pictureController import pictureController
+# from controllers.userController import userController
+# from controllers.petsController import petsController
+# from controllers.dashboardController import dashboardController
+# from controllers.guestController import guestController
+# from controllers.pictureController import pictureController
+from controllers.testController import testController
 
 app = Flask(__name__)
 
@@ -16,12 +17,13 @@ CORS(app)
 # app.register_blueprint(dashboardController, url_prefix='/api/dashboard/')
 # app.register_blueprint(guestController, url_prefix='/api/guest/')
 # app.register_blueprint(pictureController, url_prefix='/api/pictures/')
+app.register_blueprint(testController)
 
 @app.route("/")
 def testApi():
   return "Hello from server"
 
-@app.route("/testdb")
+@app.route("/test")
 def testdb():
   return "0.o"
 
