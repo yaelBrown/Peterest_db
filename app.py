@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, send_from_directory
 from flask_cors import CORS
 
 # from controllers.userController import userController
@@ -8,7 +8,11 @@ from flask_cors import CORS
 # from controllers.pictureController import pictureController
 from controllers.testController import testController
 
-app = Flask(__name__)
+app = Flask(
+  __name__, 
+  static_url_path='')
+  # static_folder='/static',
+  # template_folder='/template')
 
 CORS(app)
 
@@ -21,7 +25,7 @@ app.register_blueprint(testController)
 
 @app.route("/")
 def testApi():
-  return "Hello from server"
+  return app.send_static_file('index.html')
 
 @app.route("/test")
 def testdb():
